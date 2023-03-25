@@ -3,7 +3,7 @@
 
 ## บทเรียน
 - [1.PHP 2021 เบื้องต้น](#1php-2021-เบื้องต้น)
-- [2.Session คืออะไร](#2session-คืออะไร)
+- [2.Session ](#2session)
 - [3.ch01 พื้นฐาน PHP](#3ch01-พื้นฐาน-php)
 - [4.ch02 การจัดการข้อมูลจากฟอร์ม](#4ch02-การจัดการข้อมูลจากฟอร์ม)
 - [5.ch03 MySQL](#5ch03-mysql)
@@ -12,8 +12,106 @@
 - 1.1 การใช้ HTML ร่วมกับ PHP
 * print() กับ echo() : funtion ที่ใช้ในการแสดงข้อมูลผ่าน Browser
 
-# 2.Session คืออะไร
+# **2.Session**
+- **2.1 Session คืออะไร**
+    * ตัวแปรคล้ายคุ้กกี้ เป็นสิ่งที่ Client สร้างขึ้นมาเมื่อเปิดเว็บ Browser และติดต่อมาที่ Web server ผ่านทาง URL
+    * เมื่อ Client ทำการปิดโปรแกรม Web Browser เซสชั่น(Session) จะถูกทำลายหรือปิดลง
+    * ข้อมูลที่ถูกเก็บในตัวแปร session จะถูกบันทึกเป็นไฟล์ session
+    * session จะเก็บไฟล์ไว้ในฝั่ง server
 
+- **2.2 ความแตกต่างของ Cookies กับ Session**
+    * Cookies กับ Session คือ **อายุของตัวแปร**
+        * Cookies : อายุถูกกำหนดด้วยเวลา
+        * Session : อายุถูกกำหนดด้วยการทำงานของ Browser
+
+- **2.3 Session มีไว้เพื่อแก้ปัญหาอะไร**
+    * เพื่อแก้ปัญหาของผู้ใช้ ที่คิดว่า Cookies ไปละเมิดสิทธิส่วนบุคคล 
+    * ทำให้เบราเซอร์ต่างๆ ต้องให้ผู้ใช้สามารถเลือกได้ว่าจะอนุญาตให้ใช้คุกกี้ได้หรือไม่ ถ้าผู้ใช้กำหนดไม่ยอมรับคุกกี้ ตัวแปรคุกกี้ก็ไม่มีสิทธิ์ไปสร้างไฟล์ไว้ได้ 
+    * ดังนั้นจึงเกิดปัญหา หากว่าเรต้องการเก็บค่าข้อมูลเพื่อใช้ได้หลายๆครั้ง ก็จะลำบาก Session จึงช่วยแก้ปัญหาเรื่องนี้
+
+- **2.4 ตัวอย่าง Session**
+
+    Session| ใช้งาน |  
+    :----- | ----- | 
+    session_id( );  |หมายเลขประจำเครื่อง Client แต่ละเครื่องจะไม่ซ้ำกัน | 
+    session_start( );|คำสั่งสำหรับการเริ่มใช้งาน seesion | 
+    session_register( );| คำสั่งสำหรับประกาศตัวแปร session | 
+    $_SESSION['var'] = value; | การประกาศค่าตัวแปร session | 
+    session_write_close( ); |จบการ Create session | 
+    unset($_SESSION['var']);  |ยกเลิก/ลบค่า Delete Session ที่ต้องการ | 
+    session_destroy( );  | ยกเลิกการลบค่า Delete Session ทั้งหมด| 
+    session_encode( ); |เข้ารหัส Encode Sessio | 
+
+- **2.5 การทำงานของ session**
+    * ตัวแปรจะทำงานคู่กับ session_id
+    * session_id จะทำการเก็บตัวแปรทั้งหมดที่ถูกประกาศ Session ในหน้าปัจจุบันที่กำลังทำงานอยู่ ไว้ใช้งานในรูปแบบต่าง ๆ 
+    * ค่า **Session จะหายไปประมาณ 20 นาที (default)** หลังจากที่ไม่ได้ใช้งาน
+    หรือติดต่อกับ Server หรือหลังจากที่ปิด Browser 
+
+- **2.6 การใช้งาน PHP**
+    * 1.ก่อนการใช้งานตัวแปรเซสชั่น ต้องใช้คำสั่งเพื่อเปิดเซสชั่น
+        <details>
+        <summary>Show code</summary>
+
+            ```ruby
+            <?php
+                session_start( );
+                ob_start( );
+            ?>
+            ```
+        </details>
+
+    * 2.sample1.php // หน้ากำหนดตัวแปร session
+        <details>
+        <summary>Show code</summary>
+
+        ```ruby
+            <?php
+                session_start( );
+                ob_start( );
+                $_SESSION['abc']="Hello"; //กำหนดตัวแปร
+            ?>
+        ```
+        </details>
+        
+    * 3.sample2.php // หน้าแสดงตัวแปรเซสชั่น
+        <details>
+        <summary>Show code</summary>
+
+        ```ruby
+            <?php
+                session_start( );
+                ob_start( );
+                echo $_SESSION['abc']; //แสดงค่าตัวแปร
+            ?>
+        ```
+        </details>
+        
+    * ตัวอย่าง
+        <details>
+        <summary>Show code</summary>
+
+        ```ruby
+                animal.php // กำหนดค่าเซสชั่น
+                <?php
+                session_start( );
+                ob_start( );
+                $_SESSION['animal']="cat";
+                $_SESSION['color']="brown";
+                ?>
+                <a href="show.php">show</a>
+                show.php // แสดงผลตัวแปรเซสชั่น
+                <?php
+                session_start( );
+                ob_start( );
+                echo "Hello, Your animal is ".$_SESSION['animal'].", It has ".$_SESSION['color']." color.";
+                ?>
+            
+            ผลลัพธ์
+                Hello, Your animal is Cat, It has brown color
+
+        ```
+        </details>
 
 # **3.ch01 พื้นฐาน PHP**
 - **3.1 PHP คือ**
