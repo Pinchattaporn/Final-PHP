@@ -583,15 +583,158 @@
         <summary>ตัวอย่างคำสั่ง</summary>
                             
         ```ruby
-            SELECT : ใช้เรียกข้อมูลมาแสดงผล
+            SELECT : ใช้เรียกข้อมูลมาแสดงผล 
             INSERT : ใช้เพิ่มข้อมูลเข้าไปในตาราง
             UPDATE : ใช้แก้ไขข้อมูลในตาราง
             DELETE : ใช้ลบข้อมูลในตาราง
         ```
         </details>
+- **5.4.1 รูปแบบคำสั่งและการใช้งาน SELECT**       
+    * 1.1 SELECT<การเรียกดูข้อมูล> : ใช้เรียกข้อมูลมาแสดงผล 
+        
+        รูปแบบ `SELECT * FROM ชื่อตาราง;`
+                
+    * 1.2 SELECT<การเรียกดูข้อมูลเฉพาะบางแถวที่ตรงตามเงื่อนไข>
+        <details>
+        <summary>ตัวอย่างคำสั่ง</summary>
+                                        
+        ```ruby
+            SeLECT First_name,Last_name,Address
+            From Employess
+            WHERE Address ='อุตรดิตถ์'//เงื่อนไขว่าต้องอยู่ใน อุตรดิตถ์
 
-- **5.4.1 
+        ```
+        </details>
+        
+- **5.4.1.2 Operator (ตัวปฏิบัติการ) ที่ใช้ใน Where**
+    * 1.Special operators
+        <details>
+        <summary>Show Image</summary>
+                                                
+        <center><img src="image/Special operators.png" alt="center">  </center>
+      </details>
+    
+    * 2.การใช้ And : และ
+        <details>
+        <summary>Show Image</summary>
+                                                
+        <center><img src="image/And.png" alt="center">  </center>
+      </details>
+    
+    * 3.การใช้ OR : หรือ
+        <details>
+        <summary>Show Image</summary>
+                                                
+        <center><img src="image/OR.png" alt="center">  </center>
+      </details>
+    
+    * 4.การใช้ Between...And.. : ระหว่าง..และ..
+        <details>
+        <summary>Show Image</summary>
+                                                    
+        <center><img src="image/Between.png" alt="center">  </center>
+        </details>
 
+    * 5.การใช้ Not Between..And.. : ไม่อยู่ในระหว่าง..และ..
+        <details>
+        <summary>Show Image</summary>
+                                                        
+        <center><img src="image/Not Between.png" alt="center">  </center>
+        </details>
+
+    * 6.การใช้ IN : ข้อมูลที่อยู่ใน
+        <details>
+        <summary>Show Image</summary>
+                                                            
+        <center><img src="image/IN.png" alt="center">  </center>
+        </details>
+    * 7.การใช้ Not IN : ข้อมูลไม่อยู่ใน
+        <details>
+        <summary>Show Image</summary>
+                                                                
+        <center><img src="image/Not IN.png" alt="center">  </center>
+        </details>
+    * 8.การใช้ IS NULL : เช็คข้อมูลที่ไม่ได้ระบุ
+        <details>
+        <summary>Show Image</summary>
+                                                                    
+        <center><img src="image/IS NULI.png" alt="center">  </center>
+        </details>
+    * 9.การใช้ IS NOT NULL : เช็คข้อมูลที่มีการระบุ ไม่เป็นค่า NULL
+        <details>
+        <summary>Show Image</summary>
+                                                                        
+        <center><img src="image/IS Not Null.png" alt="center">  </center>
+        </details>
+    * 10.การใช้ Like : หาสิ่งที่ต้องการค้นหา จะอยู่หลังคำว่า Like
+        <details>
+        <summary>Show Image</summary>
+                                                                        
+        <center><img src="image/LIKE.png" alt="center">  </center>
+         <center><img src="image/การใช้ like.png" alt="center">  </center>
+        </details>
+    * 11.การใช้ Not Like : สิ่งที่ค้นหาต้องไม่อยู่หลัง like
+        <details>
+        <summary>Show Image</summary>
+                                                                            
+        <center><img src="image/Not like.png" alt="center">  </center>
+            
+        </details>
+    * 12.การใช้ DISTINDT : แสดงผลค่าที่ซ้ำกันเพียง 1 ค่า แล้วนำค่ามาเรียงใหม่
+        <details>
+        <summary>Show Image</summary>
+                                                                        
+        <center><img src="image/DISTINDT.png" alt="center">  </center>
+        <center><img src="image/no DISTINDT.png" alt="center">  </center>       
+        </details>
+    * 13.การใช้ EXISTS : ตรวจสอบข้อมูล 2 ตารางว่ามีข้อมูลเหมือนกันมั้ย
+        <details>
+        <summary>Show Image</summary>
+                                                                            
+        <center><img src="image/EX.png" alt="center">  </center>
+                
+        </details>
+
+    * 14.การใช้ ORDER BY : จัดเรียงลำดับในการแสดงผล
+        * `ASC คือ เรียงจากน้อยไปมาก` , `DESC คือ เรียงจากมากไปน้อย`
+        <details>
+        <summary>Show Image</summary>
+                                                                            
+        <center><img src="image/DESC.png" alt="center">  </center>
+                
+        </details>
+
+- **5.4.2 รูปแบบคำสั่งและการใช้งาน INSERT**
+    * INSERT: เพิ่มแถว(Row) ลงใน Table
+    * ตัวอย่างการใช้ INSERT
+        <details>
+        <summary>Show Image</summary>
+                                                                        
+        <center><img src="image/InSERt.png" alt="center">  </center>
+                
+        </details>
+
+- **5.4.3 รูปแบบคำสั่งและการใช้งาน UPDATE**
+    * UPDATE : แก้ไขข้อมูลในตาราง
+    * ตัวอย่างการใช้ UPDATE
+        <details>
+        <summary>Show Image</summary>
+                                                                            
+        <center><img src="image/UP.png" alt="center">  </center>
+        <center><img src="image/UP1.png" alt="center">  </center>           
+        </details>
+
+- **5.4.4 รูปแบบคำสั่งและการใช้งาน DELETE**
+    * DELETE : ลบแถว(Row) ออกจากตาราง
+    * ตัวอย่างการใช้ DELETE
+        <details>
+        <summary>Show Image</summary>
+                                                                                
+        <center><img src="image/DELETE.png" alt="center">  </center>
+        <center><img src="image/DELETE1.png" alt="center">  </center>           
+        </details>
+
+- **5.5 ภาษาควบคุม (Data Control Language : DCL)**
 
 
 
