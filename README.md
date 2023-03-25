@@ -53,12 +53,12 @@
         <details>
         <summary>Show code</summary>
 
-            ```ruby
+        ```ruby
             <?php
                 session_start( );
                 ob_start( );
             ?>
-            ```
+        ```
         </details>
 
     * 2.sample1.php // หน้ากำหนดตัวแปร session
@@ -280,7 +280,8 @@
         </details>
            
     - *ข้อมูลชนิดสตริง (String)*
-        
+        <details>
+        <summary>Show code</summary>
 
         ```ruby
             $phone = "080-xxxxxxx";
