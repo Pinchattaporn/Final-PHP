@@ -735,6 +735,61 @@
         </details>
 
 - **5.5 ภาษาควบคุม (Data Control Language : DCL)**
+* เป็นคำสั่งที่ใช้ในการกำหนดสิทธิการใช้งานในฐานข้อมูล
+* ตัวอย่างคำสั่ง
+    * GRANT เป็นคำสั่งให้สิทธิผู้ใช้(๊USER)
+
+- **5.6 ฟังก์ชันใน SQL**
+- **5.6.1 ฟังก์ชันเดี่ยว(Single Row function)**
+    * ฟังก์ชันในการจัดการตัวอักษร มี 2ประเภท
+        * Case-manipulation functions
+            <details>
+            <summary>Show Image</summary>
+                                                                                    
+            <center><img src="image/case.png" alt="center">  </center>
+            <center><img src="image/case1.png" alt="center">  </center>             
+            </details>
+
+        * Character-manipulation functions
+            <details>
+            <summary>Show Image</summary>
+                                                                                    
+            <center><img src="image/Cha.png" alt="center">  </center>
+            <center><img src="image/Cha1.png" alt="center">  </center>             
+            </details>
+
+    * ฟังก์ชันเกี่ยวกับตัวเลข
+        <details>
+        <summary>Show คำสั่ง</summary>
+                                                                                
+        ```ruby
+            1.ROUND : ปัดเศษทศนิยม ตามจำนวนตำแหน่งที่ระบุ โดยคำนึงถึงทศนิยมด้วยว่าจะปัดขึ้นหรือลง
+            2.TRUNC : ปัดเศษทศนิยมทิ้ง ตามจำนวนตำแหน่งที่ระบุ
+            3.MOD : หารเอาเศษที่เหลือมาตอบ
+        ```        
+        </details>
+
+    * ตัวอย่างการใช้
+        <details>
+        <summary>Show Image</summary>
+                                                                                
+        <center><img src="image/Round.png" alt="center">  </center>     
+        <center><img src="image/Round1.png" alt="center">  </center>
+        <center><img src="image/Mod.png" alt="center">  </center>         
+        </details>
+
+    * ฟังก์ชันเกี่ยวกับเวลา
+        * SYSDATE : คำสั่งที่ใช้ในการ`อ่านวันที่ปัจจุบัน`ของ Oracle Database
+        <details>
+        <summary>Show Image</summary>
+                                                                                
+        <center><img src="image/Date.png" alt="center">  </center>     
+        <center><img src="image/Date1.png" alt="center">  </center>
+        <center><img src="image/Date2.png" alt="center">  </center>         
+        </details>
+    
+    * ฟังก์ชันสรุป (Aggregate function)
+    
 
 
 
