@@ -9,8 +9,7 @@
 <body>
 
 <?php
-    echo 'Welcome to Chattaporn <br/>' ;
-    echo date('Y-m-d');
+    
 ?>
 
 </body>
